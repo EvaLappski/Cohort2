@@ -21,6 +21,7 @@ class MathComp extends React.Component {
         if (x === 'Add') { 
         	const y = math.sum(a,b);
         	this.setState({result: y});
+        	
         }
       	else if (x === 'Sub'){
       		const y = math.difference(a,b);

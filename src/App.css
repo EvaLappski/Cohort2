@@ -42,3 +42,19 @@
     transform: rotate(360deg);
   }
 }
+
+/*.accountDiv{
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  height: 20%;
+  width: 20%;
+  padding: 50px 0;
+  border: 3px black;
+border-radius: 130px 122px 122px 122px;
+-moz-border-radius: 130px 122px 122px 122px;
+-webkit-border-radius: 130px 122px 122px 122px;
+border: 10px double #000000;
+text-align: center;
+}
+*/

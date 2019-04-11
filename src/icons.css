@@ -20,3 +20,8 @@ button {
 	background: none;
 	outline: none;
 }
+
+.button2{
+	border: 1px solid black;
+	font-size: 30px;
+}
