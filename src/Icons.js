@@ -1,5 +1,5 @@
 import React from 'react';
-import './icons.css';
+import './App.css';
 import calculating from './calculating.svg';
 import mapsflags from './mapsflags.svg';
 import dollarsymbol from './dollarsymbol.svg';

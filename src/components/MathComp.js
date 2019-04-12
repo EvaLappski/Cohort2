@@ -4,7 +4,7 @@ import minus from './minus.svg'
 import multiply from './multiply.svg'
 import division from './division.svg'
 import math from './math'
-import './MathComp.css'
+import '.././App.css'
 
 class MathComp extends React.Component {
 
@@ -21,7 +21,7 @@ class MathComp extends React.Component {
         if (x === 'Add') { 
         	const y = math.sum(a,b);
         	this.setState({result: y});
-        	
+
         }
       	else if (x === 'Sub'){
       		const y = math.difference(a,b);
