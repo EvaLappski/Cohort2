@@ -2,10 +2,8 @@ import React from "react"
 import garbage from './garbage.svg'
 import Accounts from './accounts'
 import Account from './account'
+import AccountComp from './AccountComp'
 import '.././App.css'
-
-
-
 
 class AccountsComp extends React.Component {
 constructor(){
@@ -13,7 +11,10 @@ constructor(){
 	this.state={
 		newAccount: false,
 		accountList: new Accounts(),
-		counter: 0
+		counter: 0,
+		balance: 0,
+		accName: '',
+		display: false,
 		
 	}
 }
@@ -42,8 +43,21 @@ constructor(){
 
 	clickHandler3 = (event) => {
    	 let x = event.target.id;
+   		this.state.accountList.deleteAccount(x);
+   		this.setState({counter: this.state.counter-1})
    	 console.log('x is',x);
 
+
+	}
+
+	clickHandler4 = (event) => {
+		let x = event.target.id;
+		let grabName = this.state.accountList.accountList[x].accName;
+		let grabBalance = this.state.accountList.accountList[x].balance;
+		this.setState({accName: grabName, balance: grabBalance, display: true})
+		// console.log('you clicked on ', x);
+		// console.log(this.state.accountList.accountList[x]);
+		// console.log("show me the money",this.state.accName, this.state.balance,)
 
 	}
 	
@@ -51,10 +65,12 @@ constructor(){
 
 		const list = this.state.accountList.accountList.map((a, b) =>
 			<div key={b} >
-			<h2> <button id={b} className= 'button2' onClick={this.clickHandler3}>
-			<img className= 'mathicon' src={garbage} />
-			</button>Account Name: {a.accName} Balance: ${a.balance} </h2>
-			
+				<a id={b} onClick={this.clickHandler4}> 
+					<button id={b} className= 'button2' onClick={this.clickHandler3}>
+						<img className= 'mathicon' src={garbage} />
+					</button>
+					Account Name: {a.accName} Balance: ${a.balance} 
+				</a>
 			</div>
 		);
 		
@@ -74,13 +90,15 @@ constructor(){
 					<br></br>
 					<button className= 'button2' id='okAdd' onClick={this.clickHandler}>OK!</button>
 				</div> :null }
-
+				{this.state.display ? <AccountComp 
+					accName= {this.state.accName}
+					balance={this.state.balance}
+					/> : null }
 			
 		</div>
 		<div className= "leftDiv">
 					<h2>TOTAL ${this.state.accountList.calculateTotal()}</h2>
 					<h2>{list}</h2>
-					
 					<h2>highest {this.state.accountList.returnHighest().accName} ${this.state.accountList.returnHighest().balance}</h2>
 					<h2>lowest {this.state.accountList.returnLowest().accName} ${this.state.accountList.returnLowest().balance}</h2>
 					

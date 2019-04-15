@@ -2,9 +2,10 @@ import Account from "./account";
 
 
 test('test the class account class', () => {
-	const account= new Account('Eva Account', 100);
+	const account= new Account('Eva Account', 100, 3);
 	expect(account.accName).toBe('Eva Account')
 	expect(account.balance).toBe(100);
+	expect(account.accID).toBe(3);
 	expect(account.getBalance()).toBe(100);
 	account.deposit(10);
 	expect(account.getBalance()).toBe(110);

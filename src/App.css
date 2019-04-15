@@ -105,3 +105,8 @@ button {
   width: 50%;
   /*border: 1px solid black;*/
 }
+
+a{
+  color: blue;
+  text-decoration: underline;
+}

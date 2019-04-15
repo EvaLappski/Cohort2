@@ -5,8 +5,8 @@ class Accounts {
 		this.accountList = [];
 	}
 
-	createAccount (accName, balance){
-		const newAccount = new Account(accName, balance);
+	createAccount (accName, balance, accID){
+		const newAccount = new Account(accName, balance, accID);
 		this.accountList.push(newAccount);
 		// console.log(accName, balance)
 		console.log('the array', this.accountList)
@@ -44,13 +44,26 @@ class Accounts {
 			);
 		// console.log('lowest', min)
 		return min; 
-	} else {
+		} 	else {
 		// console.log('N/A');
 		return 'N/A';
-	}
+		}
 
 	
-}
+	}
+
+	findAccount (a){
+		let x = this.accountList.findIndex(function(e){return e.accID=== a})
+		return x; //returns the index of the object 
+	}
+
+	deleteAccount (accID){
+		let b = this.findAccount(accID)
+		this.accountList.splice(b,1);
+		return this.accountList;	
+
+	}
+
 }
 
 

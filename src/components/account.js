@@ -1,8 +1,9 @@
 
 class Account {
-	constructor (accName, balance) {
+	constructor (accName, balance, accID) {
 		this.accName = accName;
 		this.balance =  balance;
+		this.accID = accID;
 		
 	}
 
