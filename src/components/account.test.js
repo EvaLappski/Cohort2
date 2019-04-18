@@ -20,7 +20,7 @@ test('test the class account class', () => {
 test('test for blank object', () => {
 	const account = new Account ();
 	expect(account.balance).toBe(0);
-	expect(account.accName).toBe('Eva Savings')
+	expect(account.accName).toBe('no name')
 	expect(account.accID).toBe(0);
 	account.deposit(20);
 	expect(account.balance).toBe(20);

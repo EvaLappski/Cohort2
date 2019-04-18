@@ -1,5 +1,5 @@
 class Account {
-	constructor (accName = 'Eva Savings', balance = 0, accID = 0) {
+	constructor (accName = 'no name', balance = 0, accID = 0) {
 		
 		this.accName = accName;
 		this.balance = balance;	

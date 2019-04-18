@@ -74,7 +74,7 @@ render(){
 		<div>
 			{this.state.calculator ? <MathComp/> : null}
 			{this.state.home ? <img src={tenor}/> : null}
-			{this.state.accounts ? <AccountComp  accName= 'Lapp' balance= {this.state.balance} obtainDeposit= {this.obtainDeposit} /> : null}
+			{this.state.accounts ? <AccountComp  accName= 'Lapp' balance= {this.state.balance}  /> : null}
 			{this.state.bank ? <AccountsComp  /> : null} 
 		</div>
 	</div>

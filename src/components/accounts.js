@@ -57,7 +57,7 @@ class Accounts {
 
 	deleteAccount (accID){
 		let b = this.findAccount(accID)
-		this.accountList.splice(b,1);
+		this.accountList.splice(b, 1);
 		return this.accountList;	
 
 	}

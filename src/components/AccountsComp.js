@@ -14,6 +14,8 @@ constructor(){
 		lowest: 0,
 		accountController: new Accounts(),
 		newAccount: false,
+		inputName: '',
+		inputBalance: 0,
 	}
 	
 
@@ -31,6 +33,7 @@ createNewAcct = () => {
 	console.log('the array' , this.accountController);
 	this.setState({})
 	this.getStats();
+	this.setState({accountController: this.accountController})
 }
 
 getTotal = () => {
@@ -59,8 +62,10 @@ getStats = () => {
 	this.getLowest()
 }
 
-removeAccount = () => {
-	
+removeAccount = (accID) => {
+	console.log('i run comp remove')
+	this.accountController.deleteAccount(accID);
+	this.setState({accountController: this.accountController})
 }
 
 handleChange = (event) =>{
@@ -77,9 +82,10 @@ render(){
 
 		return <AccountComp
 			key ={b}
-			marker= {b}
 			accName = {this.state.accountController.accountList[b].accName}
 			balance = {this.state.accountController.accountList[b].balance}
+			accID = {this.state.accountController.accountList[b].accID}
+			removeAccount = {(accID) => this.removeAccount(accID)}
 			/>
 	});
 
