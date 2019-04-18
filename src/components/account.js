@@ -1,10 +1,18 @@
-
 class Account {
-	constructor (accName, balance, accID) {
-		this.accName = accName;
-		this.balance =  balance;
-		this.accID = accID;
+	constructor (accName = 'Eva Savings', balance = 0, accID = 0) {
 		
+		this.accName = accName;
+		this.balance = balance;	
+		this.accID = accID
+	}
+
+	getName () {
+		return this.accName;
+	}
+
+	getID () {
+		console.log("accID", this.accID)
+		return this.accID;
 	}
 
 	getBalance () {

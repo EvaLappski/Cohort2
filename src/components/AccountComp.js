@@ -3,35 +3,50 @@ import plus from './plus.svg'
 import minus from './minus.svg'
 import Account from './account'
 
-
-
 class AccountComp extends React.Component {
-	constructor(props){
-		super(props)
-		this.state={
-			obj: new Account(),
-			balance: '',
-			transaction: '',
+	constructor(props){ 
+		super(props);
+
+			this.state={
+			
+				account: '',
 		}
+			
 	}
 
-	onChange =() => {
-		this.setState({transaction: Number(document.getElementById("transaction").value) })
+	componentDidMount() {	
+		this.account = new Account (this.props.accName, this.props.balance);
+		this.setState({account: this.account})
+	
+	}
+
+	handleChange = (event) =>{
+ 	const {name,value} = event.target
+  	this.setState({[name]:value});
+  	// console.log(this.state.newAccountType)
+
 	}
 	
   	clickHandler = (event) => {
+
     let x = event.target.id;
-    let a = this.state.transaction
+    console.log("x",x)
+    // let a = this.state.transaction
+    console.log(event.target)
+    let a = Number(this.state.input);
 
 		if (x === 'Deposit'){
-			this.setState({balance: this.state.obj.deposit(a)})
+			let sample = this.account.deposit(a);
+			this.setState({account: this.account})
+			this.props.obtainDeposit(sample,this.props.marker);
 		}
+		console.log('the balance is', this.state)
 
 		if (x === "Withdrawl"){
-			this.setState({balance: this.state.obj.withdrawl(a)})
-		
+			let sample = this.account.withdrawl(a);
+			this.setState({account: this.account})
+			this.props.obtainDeposit(sample,this.props.marker)
 		}
-	
 	}
 
 	render(){
@@ -41,7 +56,7 @@ class AccountComp extends React.Component {
 			<h2> ACCOUNT </h2>
 				<div className= "accountDiv">
 					<h2> {this.props.accName} </h2>
-					<input id="transaction" type="number" name="transaction" onChange={this.onChange}/>
+					<input id="transaction" type="number" name="input" onChange={this.handleChange}/>
 					<br></br>
 					<br></br>
 					<button className= 'button' id='Deposit' onClick={this.clickHandler} >

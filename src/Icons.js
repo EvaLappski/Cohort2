@@ -9,14 +9,26 @@ import bank from './bank.svg';
 import MathComp from './components/MathComp';
 import AccountComp from './components/AccountComp';
 import AccountsComp from './components/AccountsComp';
+import account from './components/account';
+import accounts from './components/accounts';
 
 class Icons extends React.Component {
-	state = {
+	constructor(props){
+		super(props);
+		console.log('constructor props', props)
+	this.state = {
 		name: '',
 		calculator: false,
 		home: false,
 		accounts: false,
 		bank: false,
+		balance:0
+	}
+
+	}
+
+	obtainDeposit = (balance) => {
+		this.setState({balance: balance})
 	}
 
 clickHandler = (event) => {
@@ -32,7 +44,7 @@ clickHandler = (event) => {
 
     else if (x === "Accounts"){
     	this.setState(prevState => ({ accounts: !prevState.accounts }))
-    	this.setState({calculator: false, home:false, bank:false})
+    	this.setState({calculator: false, home:false, bank:false})	
     }
 
     else if (x === "Bank"){
@@ -43,6 +55,7 @@ clickHandler = (event) => {
 }
 
 render(){
+	const e = new accounts();
 	// console.log(this.state.accounts);
 	return(
 	<div>
@@ -61,14 +74,14 @@ render(){
 		<div>
 			{this.state.calculator ? <MathComp/> : null}
 			{this.state.home ? <img src={tenor}/> : null}
-			{this.state.accounts ? <AccountComp/> : null}
-			{this.state.bank ? <AccountsComp/> : null} 
+			{this.state.accounts ? <AccountComp  accName= 'Lapp' balance= {this.state.balance} obtainDeposit= {this.obtainDeposit} /> : null}
+			{this.state.bank ? <AccountsComp  /> : null} 
 		</div>
 	</div>
 	)
 
 }
 
-} 
+}
 
 export default Icons

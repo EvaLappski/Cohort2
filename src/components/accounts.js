@@ -1,12 +1,15 @@
 import Account from "./account";
 
+
+
 class Accounts {
 	constructor(){
 		this.accountList = [];
+		this.counter = 0
 	}
 
 	createAccount (accName, balance, accID){
-		const newAccount = new Account(accName, balance, accID);
+		const newAccount = new Account(accName, balance, this.counter++);
 		this.accountList.push(newAccount);
 		// console.log(accName, balance)
 		console.log('the array', this.accountList)
@@ -30,8 +33,9 @@ class Accounts {
 		// console.log('max', max)
 		return max; 
 
-	}	else {
-		//console.log('N/A');
+	}	
+	else {
+	// 	//console.log('N/A');
 		return 'N/A'; 
 		}
 	}
@@ -44,8 +48,9 @@ class Accounts {
 			);
 		// console.log('lowest', min)
 		return min; 
-		} 	else {
-		// console.log('N/A');
+		} 	
+		 else {
+		// // console.log('N/A');
 		return 'N/A';
 		}
 

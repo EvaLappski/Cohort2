@@ -15,9 +15,21 @@ constructor(){
 		balance: 0,
 		accName: '',
 		display: false,
+		account:''
+
 		
 	}
 }
+
+	obtainDeposit = (balance, marker) => {
+		console.log('balance', balance, 'i', marker)
+		console.log('this account list', this.state.accountList.account)
+		let clone = this.state.accountList
+		console.log('the clone', clone.accountList[0].accName)
+		clone.accountList[marker].balance = balance
+		this.setState({balance: balance})
+		this.setState({account: clone})
+	}
 
 	clickHandler = (event) => {
     let x = event.target.id;
@@ -54,7 +66,10 @@ constructor(){
 		let x = event.target.id;
 		let grabName = this.state.accountList.accountList[x].accName;
 		let grabBalance = this.state.accountList.accountList[x].balance;
+		console.log('state before', this.state.accName)
+		console.log('grab balance', grabBalance, 'grab name', grabName)
 		this.setState({accName: grabName, balance: grabBalance, display: true})
+		console.log('state after', this.state.accName)
 		// console.log('you clicked on ', x);
 		// console.log(this.state.accountList.accountList[x]);
 		// console.log("show me the money",this.state.accName, this.state.balance,)
@@ -63,15 +78,27 @@ constructor(){
 	
 	render() {
 
-		const list = this.state.accountList.accountList.map((a, b) =>
-			<div key={b} >
-				<a id={b} onClick={this.clickHandler4}> 
-					<button id={b} className= 'button2' onClick={this.clickHandler3}>
-						<img className= 'mathicon' src={garbage} />
-					</button>
-					Account Name: {a.accName} Balance: ${a.balance} 
-				</a>
-			</div>
+		const list = this.state.accountList.accountList.map((a, b) => {
+
+			return <AccountComp
+				key ={b}
+				marker= {b}
+				accName = {this.state.accountList.accountList[b].accName}
+				balance = {this.state.accountList.accountList[b].balance}
+				obtainDeposit = {(b, marker) => this.obtainDeposit(b, marker)}
+
+
+			/>
+
+		}
+		//	<div key={b} >
+			//	<a id={b} onClick={this.clickHandler4}> 
+				//	<button id={b} className= 'button2' onClick={this.clickHandler3}>
+				//		<img className= 'mathicon' src={garbage} />
+				//	</button>
+				//	Account Name: {this.state.accountList.accountList[b].accName} Balance: ${this.state.accountList.accountList[b].balance} 
+			//	</a>
+		//	</div>
 		);
 		
 
@@ -90,10 +117,7 @@ constructor(){
 					<br></br>
 					<button className= 'button2' id='okAdd' onClick={this.clickHandler}>OK!</button>
 				</div> :null }
-				{this.state.display ? <AccountComp 
-					accName= {this.state.accName}
-					balance={this.state.balance}
-					/> : null }
+					{this.state.display ? <AccountComp/> : null }
 			
 		</div>
 		<div className= "leftDiv">
