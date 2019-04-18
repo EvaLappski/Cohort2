@@ -15,7 +15,7 @@ import accounts from './components/accounts';
 class Icons extends React.Component {
 	constructor(props){
 		super(props);
-		console.log('constructor props', props)
+		// console.log('constructor props', props)
 	this.state = {
 		name: '',
 		calculator: false,

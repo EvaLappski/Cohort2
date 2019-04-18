@@ -11,7 +11,6 @@ class Account {
 	}
 
 	getID () {
-		console.log("accID", this.accID)
 		return this.accID;
 	}
 

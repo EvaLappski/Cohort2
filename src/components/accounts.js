@@ -1,7 +1,5 @@
 import Account from "./account";
 
-
-
 class Accounts {
 	constructor(){
 		this.accountList = [];
@@ -12,9 +10,8 @@ class Accounts {
 		const newAccount = new Account(accName, balance, this.counter++);
 		this.accountList.push(newAccount);
 		// console.log(accName, balance)
-		console.log('the array', this.accountList)
+		// console.log('the array', this.accountList)
 		return this.accountList;
-
 	}
 
 	calculateTotal (){
@@ -30,12 +27,10 @@ class Accounts {
 			(acc1, acc2) => 
 			 (acc1.balance > acc2.balance) ? acc1 : acc2
 			)
-		// console.log('max', max)
 		return max; 
 
 	}	
 	else {
-	// 	//console.log('N/A');
 		return 'N/A'; 
 		}
 	}
@@ -46,11 +41,9 @@ class Accounts {
 			(acc1, acc2) => 
 			 (acc1.balance < acc2.balance) ? acc1 : acc2
 			);
-		// console.log('lowest', min)
 		return min; 
 		} 	
 		 else {
-		// // console.log('N/A');
 		return 'N/A';
 		}
 
@@ -70,7 +63,6 @@ class Accounts {
 	}
 
 }
-
 
 
 export default Accounts;

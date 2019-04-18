@@ -8,62 +8,51 @@ class AccountComp extends React.Component {
 		super(props);
 
 			this.state={
-			
 				account: '',
-		}
+			}
 			
 	}
 
 	componentDidMount() {	
 		this.account = new Account (this.props.accName, this.props.balance);
 		this.setState({account: this.account})
-	
 	}
 
-	handleChange = (event) =>{
- 	const {name,value} = event.target
-  	this.setState({[name]:value});
-  	// console.log(this.state.newAccountType)
-
+	handleChange = (event) => {
+ 		const {name,value} = event.target
+  		this.setState({[name]:value});
 	}
-	
-  	clickHandler = (event) => {
 
-    let x = event.target.id;
-    console.log("x",x)
-    // let a = this.state.transaction
-    console.log(event.target)
-    let a = Number(this.state.input);
+	withdrawl = () => {
+		let b = Number(this.state.input);
+		console.log('the input', b)
+		console.log('hello withdrawl')
+		this.account.withdrawl(b);
+		this.setState({account: this.account})
+	}
 
-		if (x === 'Deposit'){
-			let sample = this.account.deposit(a);
-			this.setState({account: this.account})
-			this.props.obtainDeposit(sample,this.props.marker);
-		}
-		console.log('the balance is', this.state)
-
-		if (x === "Withdrawl"){
-			let sample = this.account.withdrawl(a);
-			this.setState({account: this.account})
-			this.props.obtainDeposit(sample,this.props.marker)
-		}
+	deposit = () => {
+		let a = Number(this.state.input);
+		console.log('the input', a)
+		console.log('hello deposit')
+		this.account.deposit(a);
+		this.setState({account: this.account})
 	}
 
 	render(){
 		
 		return (
 		<div >
-			<h2> ACCOUNT </h2>
 				<div className= "accountDiv">
-					<h2> {this.props.accName} </h2>
+					<h2> {this.state.account.accName} </h2>
 					<input id="transaction" type="number" name="input" onChange={this.handleChange}/>
 					<br></br>
 					<br></br>
-					<button className= 'button' id='Deposit' onClick={this.clickHandler} >
+					<button className= 'button' id='Deposit' onClick={this.deposit} >
 					<img  src={plus} className="mathicon" alt="icon" /></button>
-					<button className= 'button' id='Withdrawl' onClick={this.clickHandler} >
+					<button className= 'button' id='Withdrawl' onClick={this.withdrawl} >
 					<img  src={minus} className="mathicon" alt="icon" /></button>
-					<h2> {this.props.balance}</h2>
+					<h2> {this.state.account.balance}</h2>
 				</div>
 
 		</div>
