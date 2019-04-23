@@ -10,8 +10,11 @@ class AccountComp extends React.Component {
 			this.state={
 				account: '',
 			}
-			
+		
+	console.log('props',props);
 	}
+
+
 
 	componentDidMount() {	
 		this.account = new Account (this.props.accName, this.props.balance, this.props.accID);
@@ -69,4 +72,4 @@ class AccountComp extends React.Component {
 }
 
 
-export default AccountComp
+export default AccountComp;

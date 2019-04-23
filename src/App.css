@@ -58,6 +58,12 @@ input{
 
 }
 
+.inputBox {
+  border: 1px solid black;
+  font-size: 15px;
+  margin: 0px;
+}
+
 h2{
   font-size: 34px;
 }
@@ -112,3 +118,6 @@ a{
   text-decoration: underline;
 }
 
+td{
+  border: 1px solid-black;
+}
