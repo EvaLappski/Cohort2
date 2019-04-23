@@ -63,9 +63,9 @@ getStats = () => {
 }
 
 removeAccount = (accID) => {
-	console.log('i run comp remove')
 	this.accountController.deleteAccount(accID);
 	this.setState({accountController: this.accountController})
+	this.getStats();
 }
 
 handleChange = (event) =>{

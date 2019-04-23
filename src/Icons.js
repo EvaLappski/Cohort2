@@ -9,6 +9,7 @@ import bank from './bank.svg';
 import MathComp from './components/MathComp';
 import AccountComp from './components/AccountComp';
 import AccountsComp from './components/AccountsComp';
+import CityComp from './components/CityComp'
 import account from './components/account';
 import accounts from './components/accounts';
 
@@ -22,34 +23,40 @@ class Icons extends React.Component {
 		home: false,
 		accounts: false,
 		bank: false,
+		city: false, 
 		balance:0
 	}
 
 	}
 
-	obtainDeposit = (balance) => {
-		this.setState({balance: balance})
-	}
+	// obtainDeposit = (balance) => {
+	// 	this.setState({balance: balance})
+	// }
 
 clickHandler = (event) => {
     let x = event.target.id
     if (x === 'Calculator') { 
     	this.setState(prevState => ({ calculator: !prevState.calculator }))
-    	this.setState({home: false, accounts:false, bank:false })
+    	this.setState({home: false, accounts:false, bank:false, city: false })
     }
     else if (x === 'Home'){
     	this.setState(prevState => ({ home: !prevState.home }))
-    	this.setState({calculator: false, accounts:false, bank:false})
+    	this.setState({calculator: false, accounts:false, bank:false, city: false})
     }
 
     else if (x === "Accounts"){
     	this.setState(prevState => ({ accounts: !prevState.accounts }))
-    	this.setState({calculator: false, home:false, bank:false})	
+    	this.setState({calculator: false, home:false, bank:false,city: false})	
     }
 
     else if (x === "Bank"){
     	this.setState(prevState => ({ bank: !prevState.bank}))
-    	this.setState({calculator: false, home:false, accounts:false})
+    	this.setState({calculator: false, home:false, accounts:false, city: false})
+    }
+
+    else if ( x === "City"){
+    	this.setState(prevState => ({ city: !prevState.city}))
+    	this.setState({calculator: false, home:false, accounts:false,bank: false})
     }
     // console.log("event.target.id is", x);
 }
@@ -76,6 +83,7 @@ render(){
 			{this.state.home ? <img src={tenor}/> : null}
 			{this.state.accounts ? <AccountComp  accName= 'Lapp' balance= {this.state.balance}  /> : null}
 			{this.state.bank ? <AccountsComp  /> : null} 
+			{this.state.city ? <CityComp /> : null}
 		</div>
 	</div>
 	)
