@@ -113,11 +113,8 @@ button {
   /*border: 1px solid black;*/
 }
 
-a{
-  color: blue;
-  text-decoration: underline;
+.column{
+  font-size: 20px;
+  padding: 20px;
 }
 
-td{
-  border: 1px solid-black;
-}

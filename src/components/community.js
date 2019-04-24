@@ -10,11 +10,8 @@ class Community {
 	createCity(city, latitude, longitude, population){
 		const newCity = new City(city, latitude, longitude, population, this.counter++);
 		this.community.push(newCity);
-		return this.community;
-		
+		return this.community;	
 	}
-
-	
 
 	findCityIndex (a){
 		let x = this.community.findIndex(function(e){return e.cityID === a})
@@ -56,6 +53,7 @@ class Community {
 		}	
 		else {
 			return "n/a"
+			
 		}
 
 	}
