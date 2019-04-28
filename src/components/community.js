@@ -3,9 +3,8 @@ import City from './city'
 class Community {
 	constructor (){
 		this.community = [];
-		this.counter = 0
+		this.counter = 0;
 	}
-
 
 	createCity(city, latitude, longitude, population){
 		const newCity = new City(city, latitude, longitude, population, this.counter++);
@@ -32,13 +31,11 @@ class Community {
 	getMostNorthern(){
 		if (this.community.length > 0) {
 			const highest = this.community.reduce(
-				(city1, city2) => 
-				(city1.latitude > city2.latitude) ? city1 : city2
-				)
-		return highest.city
+				(city1, city2) => (city1.latitude > city2.latitude) ? city1 : city2);
+			return highest.city;
 		}	
 		else {
-			return "n/a"
+			return "n/a";
 		}
 
 	}
@@ -46,30 +43,31 @@ class Community {
 	getMostSouthern(){
 		if (this.community.length > 0) {
 			const lowest = this.community.reduce(
-			(city1, city2) => 
-			(city1.latitude < city2.latitude) ? city1 : city2
-			)
-		return lowest.city
+			(city1, city2) => (city1.latitude < city2.latitude) ? city1 : city2);
+			return lowest.city;
 		}	
 		else {
-			return "n/a"
-			
+			return "n/a";
 		}
-
 	}
 
 	getPopulationTotal(){
 		let sum = this.community.reduce(
 		(accountList, currentValue) => accountList + currentValue.population, 0);
-		return sum;
-			
+		return sum;	
 	}
 
 	deleteCity (cityID){
-		let b = this.findCityIndex(cityID)
+		console.log('cityID', cityID);
+		let b = this.findCityIndex(cityID);
+		console.log('b',b);
 		this.community.splice(b, 1);
 		return this.community;	
+	}
 
+	showDetails (cityID){
+		let b = this.findCityIndex(cityID);
+		return this.community[b];
 	}
 }
 

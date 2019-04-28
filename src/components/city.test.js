@@ -29,5 +29,8 @@ test('test the class community', () => {
 	expect(community.getMostSouthern()).toEqual('Whoville');
 	expect(community.getPopulationTotal()).toEqual(12390100)
 	expect(community.deleteCity(0)).toEqual([{city: "Calgary", latitude:51.0486, longitude: -114.0708, population: 12390000, cityID:1}]);
-
+	expect(community.showDetails(1)).toEqual({"city": "Calgary", "cityID": 1, "latitude": 51.0486, "longitude": -114.0708, "population": 12390000})
+	community.createCity('Edmonton', 56.8, -118.9, 400000);
+	community.deleteCity(1)
+	expect(community.showDetails(2)).toEqual({"city": "Edmonton", "cityID": 2, "latitude": 56.8, "longitude": -118.9, "population": 400000})
 	});

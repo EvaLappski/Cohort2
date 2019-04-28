@@ -5,7 +5,6 @@ class City {
 		this.longitude = longitude;
 		this.population = population;
 		this.cityID = cityID;
-
 	}
 
 	show(){
@@ -18,7 +17,6 @@ class City {
 
 	movedOut(amount){
 		return this.population -= amount;
-
 	}
 
 	howBig(city){

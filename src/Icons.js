@@ -29,9 +29,9 @@ class Icons extends React.Component {
 
 	}
 
-	// obtainDeposit = (balance) => {
-	// 	this.setState({balance: balance})
-	// }
+	obtainDeposit = (balance) => {
+		this.setState({balance: balance})
+	}
 
 clickHandler = (event) => {
     let x = event.target.id
@@ -81,7 +81,7 @@ render(){
 		<div>
 			{this.state.calculator ? <MathComp/> : null}
 			{this.state.home ? <img src={tenor}/> : null}
-			{this.state.accounts ? <AccountComp  accName= 'Lapp' balance= {this.state.balance}  /> : null}
+			{this.state.accounts ? <AccountComp  accName= 'Lapp' balance= {this.state.balance} obtainDeposit={this.obtainDeposit} /> : null}
 			{this.state.bank ? <AccountsComp  /> : null} 
 			{this.state.city ? <CityComp /> : null}
 		</div>

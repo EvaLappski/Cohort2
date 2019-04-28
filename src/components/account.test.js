@@ -1,11 +1,10 @@
 import Account from "./account";
 
-
 test('test the class account class', () => {
 	const account= new Account('Eva Account', 100);
 	expect(account.accName).toBe('Eva Account');
 	expect(account.getName()).toBe('Eva Account');
-	expect(account.getID()).toBe(0)
+	expect(account.getID()).toBe(0);
 	expect(account.balance).toBe(100);
 	expect(account.accID).toBe(0);
 	expect(account.getBalance()).toBe(100);

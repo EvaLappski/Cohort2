@@ -23,8 +23,3 @@ function quotient(a, b) {
 
 
 export default {sum,product, difference, quotient}
-
-
-{
-
-}
