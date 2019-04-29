@@ -5,7 +5,7 @@ test('test the class city', () => {
 	const city = new City('Calgary', 51.0486, -114.0708, 1239000, 1);
 	expect(city.show()).toEqual('Calgary Lat:51.0486 Lon:-114.0708 Pop:1239000');
 	expect(city.movedIn(1000)).toEqual(1240000);
-	expect(city.howBig('Calgary')).toEqual('City')
+	expect(city.howBig('Calgary')).toEqual('City');
 	expect(city.movedOut(1140000)).toEqual(100000);
 	expect(city.howBig('Calgary')).toEqual('Large Town');
 	expect(city.movedOut(99998)).toEqual(2);

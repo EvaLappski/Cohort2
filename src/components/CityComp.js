@@ -2,6 +2,7 @@ import React from "react";
 import City from './city';
 import '.././App.css';
 import Community from './community'
+import CityDetails from './CityDetails'
 
 
 class CityComp extends React.Component {
@@ -10,9 +11,8 @@ class CityComp extends React.Component {
 
 		this.state = {
 			communityController : new Community (),
-			sum: 0,
-			highest: '',
-			lowest: '',
+			displayDetails: false,
+			whichCity: '',
 		}
 
 		this.state.communityController.createCity('Edmonton', 100, 99, 9000)
@@ -32,8 +32,6 @@ class CityComp extends React.Component {
 		let pop = document.getElementById('input4').value;
 		this.communityController.createCity(name, lati, long, pop);
 		this.setState({communityController: this.communityController});
-		this.showStats()
-		// console.log('the array' , this.communityController);
 	}
 
 	handleChange = (event) =>{
@@ -44,43 +42,18 @@ class CityComp extends React.Component {
 	deleteCity = (cityID) => {
 		this.communityController.deleteCity(cityID);
 		this.setState({communityController: this.communityController});
-		this.showStats();
 	}
 
 	showDetails = (cityID) => {
 		let x = this.communityController.findCityIndex(cityID);//return index
 		this.setState({communityController: this.communityController});
-		console.log("im here", this.communityController.community[x].city);
-		return this.communityController.community[x].city;
+		// console.log("im here", this.communityController.community[x].city);
+		this.setState({whichCity: this.communityController.community[x]});
+		// console.log("state", this.state.whichCity);
+		this.setState({displayDetails: true});
 	}
 
-	getNorthern = () => {
-		let highest = this.communityController.getMostNorthern();
-		console.log('the highest', highest);
-		this.setState({highest: highest});
-		return highest;
-	}
 
-	getSouthern = () => {
-		let lowest = this.communityController.getMostSouthern();
-		console.log('the lowest', lowest);
-		this.setState({lowest: lowest});
-		console.log('lowest', lowest);
-		return lowest;
-	}
-
-	getTotal = () => {
-		let sum =this.communityController.getPopulationTotal();
-		console.log('the total', sum);
-		this.setState({sum: sum});
-		return sum;
-	}
-
-	showStats = () =>{
-		this.getNorthern()
-		this.getSouthern()
-		this.getTotal()		
-	}
 
 	render(){
 		
@@ -123,10 +96,16 @@ class CityComp extends React.Component {
 				</table>
 					<br></br>
 				<div>
-					<h2>Total {this.state.sum} </h2>
-					<h2>Most Northern {this.state.highest} </h2>	
-					<h2>Most Southern {this.state.lowest} </h2>		
+					<h2>Total {this.state.communityController.getPopulationTotal()} </h2>
+					<h2>Most Northern {this.state.communityController.getMostNorthern()} </h2>	
+					<h2>Most Southern {this.state.communityController.getMostSouthern()} </h2>		
 				</div>
+
+				<div>
+					{this.state.displayDetails ? <CityDetails passCity={this.state.whichCity} passCommunity={this.state.communityController} /> : null}
+				</div>
+				
+				
 			</div>
 		)	
 	}

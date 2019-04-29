@@ -42,7 +42,7 @@ class Accounts {
 
 	findAccount (a){
 		let x = this.accountList.findIndex(function(e){
-			return e.accID === a})
+		return e.accID === a})
 		return x; //returns the index of the object 
 	}
 
