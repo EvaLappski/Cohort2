@@ -24,6 +24,7 @@ class CityComp extends React.Component {
 		this.communityController = this.state.communityController
 		this.setState({communityController: this.communityController})
 	}
+	
 
 	createNewCity = () => {	
 		let name = document.getElementById('input1').value;
@@ -49,11 +50,23 @@ class CityComp extends React.Component {
 		this.setState({communityController: this.communityController});
 		// console.log("im here", this.communityController.community[x].city);
 		this.setState({whichCity: this.communityController.community[x]});
-		// console.log("state", this.state.whichCity);
+		// console.log("state", this.state.whichCity);1
 		this.setState({displayDetails: true});
 	}
 
+	moveOut = (cityID) => {
+		let a = this.state.whichCity.cityID;
+		let y = Number(document.getElementById('inputOut').value);
+		this.communityController.community[a].movedOut(y);
+		this.setState({communityController: this.communityController});
+	}
 
+	moveIn = (cityID) => {
+		let a = this.state.whichCity.cityID;
+		let y = Number(document.getElementById('inputIn').value);
+		this.communityController.community[a].movedIn(y);
+		this.setState({communityController: this.communityController});
+	}
 
 	render(){
 		
@@ -102,7 +115,7 @@ class CityComp extends React.Component {
 				</div>
 
 				<div>
-					{this.state.displayDetails ? <CityDetails passCity={this.state.whichCity} passCommunity={this.state.communityController} /> : null}
+					{this.state.displayDetails ? <CityDetails passCity={this.state.whichCity} passCommunity={this.state.communityController} passMoveOut={this.moveOut} passMoveIn={this.moveIn} /> : null}
 				</div>
 				
 				

@@ -1,4 +1,5 @@
 import City from './city'
+import CityDetails from './CityDetails'
 
 class Community {
 	constructor (){

@@ -2,13 +2,12 @@ import React from "react";
 import City from './city';
 import '.././App.css';
 import Community from './community'
+import CityComp from './CityComp'
 
 class CityDetails extends React.Component {
 	constructor(props){
 		super(props);	
 	}
-
-	
 
 	render(){
 
@@ -23,15 +22,12 @@ class CityDetails extends React.Component {
 				<h2>How Big: {this.props.passCity.howBig()} </h2>
 				<h2>Which Sphere: {this.props.passCommunity.whichSphere(cityID)}</h2>
 				<input className= 'inputBox' type= 'text' id='inputIn' placeholder= "Moved In"/>
-				<button className='button2'>Move In</button>
+				<button className='button2'onClick={this.props.passMoveIn}>Move In</button>
 				<br></br>
 				<input className= 'inputBox' type= 'text' id='inputOut' placeholder= "Moved Out"/>
-				<button className='button2'>Move Out</button>
+				<button className='button2' onClick={this.props.passMoveOut}>Move Out</button>
 			</div>
-			)
-			
-	
-
+		)
 	}
 }
 

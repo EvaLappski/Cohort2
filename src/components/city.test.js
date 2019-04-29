@@ -20,15 +20,13 @@ test ('test the class city default', () => {
 test('test the class community', () => {
 	const community = new Community();
 	expect(community.createCity()).toEqual([{city:'Whoville', latitude:-100, longitude:100, population:100, cityID:0}]);
-	expect(community.createCity('Calgary', 51.0486, -114.0708, 12390000)).toEqual([
-		{city:'Whoville', latitude:-100, longitude:100, population:100, cityID:0},
-		{city: "Calgary", latitude:51.0486, longitude: -114.0708, population: 12390000, cityID:1}]);
+	community.createCity('Calgary', 51.0486, -114.0708, 12390000)
 	expect(community.whichSphere(1)).toEqual('Northern');
 	expect(community.whichSphere(0)).toEqual('Southern');
 	expect(community.getMostNorthern()).toEqual('Calgary');
 	expect(community.getMostSouthern()).toEqual('Whoville');
 	expect(community.getPopulationTotal()).toEqual(12390100)
-	expect(community.deleteCity(0)).toEqual([{city: "Calgary", latitude:51.0486, longitude: -114.0708, population: 12390000, cityID:1}]);
+	community.deleteCity(0)
 	expect(community.showDetails(1)).toEqual({"city": "Calgary", "cityID": 1, "latitude": 51.0486, "longitude": -114.0708, "population": 12390000})
 	community.createCity('Edmonton', 56.8, -118.9, 400000);
 	community.deleteCity(1)
