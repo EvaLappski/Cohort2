@@ -89,6 +89,7 @@ class CityComp extends React.Component {
 
 		return (
 			<div>
+			<h2> CITIES AND COMMUNITY </h2>
 				<table id= 'table'>
 					<tbody>
 						<tr>
@@ -109,9 +110,9 @@ class CityComp extends React.Component {
 				</table>
 					<br></br>
 				<div>
-					<h2>Total {this.state.communityController.getPopulationTotal()} </h2>
-					<h2>Most Northern {this.state.communityController.getMostNorthern()} </h2>	
-					<h2>Most Southern {this.state.communityController.getMostSouthern()} </h2>		
+					<h2>Total Population: {this.state.communityController.getPopulationTotal()} </h2>
+					<h2>Most Northern City: {this.state.communityController.getMostNorthern()} </h2>	
+					<h2>Most Southern City: {this.state.communityController.getMostSouthern()} </h2>		
 				</div>
 
 				<div>

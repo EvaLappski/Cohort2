@@ -91,6 +91,7 @@ class AccountsComp extends React.Component {
 
 		return (
 		<div>
+			<h2> BANK ACCOUNTS </h2>
 			<div className= 'bankDiv'>
 				<div className= 'rightDiv'>
 					<button className= 'button2' id='newAccount'> New</button>
@@ -104,10 +105,10 @@ class AccountsComp extends React.Component {
 				</div>
 		
 			<div className= "leftDiv">
-				<h2>Total ${this.state.sum}</h2>
+				<h2>Total: ${this.state.sum}</h2>
 				
-				<h2>Highest {this.state.highest.accName} ${this.state.highest.balance} </h2>
-				<h2>Lowest {this.state.lowest.accName} ${this.state.lowest.balance} </h2>
+				<h2>Highest: {this.state.highest.accName} ${this.state.highest.balance} </h2>
+				<h2>Lowest: {this.state.lowest.accName} ${this.state.lowest.balance} </h2>
 
 			</div>
 			

@@ -44,13 +44,14 @@ class AccountComp extends React.Component {
 		
 		return (
 			<div >
+			<h2> BASIC ACCOUNT </h2>
 				<div className= "accountDiv">
 					<h2> { this.props.accName } </h2>
 					<input id="transaction" type="number" name="input" onChange={this.handleChange}/>
 					<button className= 'button' id='Deposit' onClick={ this.deposit } >
 					<img  src={ plus } className="mathicon" alt="icon" /></button>
 					<button className= 'button' id='Withdrawl' onClick={ this.withdrawl } >
-					<img  src={ minus } className="mathicon" alt="icon" /></button>
+					<img  src={ minus } className="mathicon" alt="icon" /></button>   
 					<button className= 'button2' id='remove' onClick={ this.remove }>Delete</button>
 					<h2> Account Balance: { this.props.balance }</h2>
 				</div>

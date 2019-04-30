@@ -10,7 +10,7 @@ class ListComp extends React.Component {
 
 		return (
 			<div>
-			<h2> Hello from List Comp </h2>
+			<h2> LIST COMP </h2>
 			</div>
 		)
 			
