@@ -32,3 +32,15 @@ test('test the class community', () => {
 	community.deleteCity(1)
 	expect(community.showDetails(2)).toEqual({"city": "Edmonton", "cityID": 2, "latitude": 56.8, "longitude": -118.9, "population": 400000})
 	});
+
+test('test the object reference', () => {
+	const city = new City ('myCity', -45, -45, 1000000);
+	expect(city.show()).toEqual('myCity Lat:-45 Lon:-45 Pop:1000000');
+	expect(city.population).toEqual(1000000)
+	let myFave = city
+	expect(myFave.movedIn(1000)).toEqual(1001000);
+	let myCity = myFave
+	expect(myCity.movedIn(5000)).toEqual(1006000)
+	
+
+});

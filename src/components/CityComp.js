@@ -17,7 +17,7 @@ class CityComp extends React.Component {
 
 		this.state.communityController.createCity('Edmonton', 100, 99, 9000)
 		this.state.communityController.createCity('Calgary', 100, 99, 9000)
-		this.state.communityController.createCity('Vancouver', 100, 99, 9000)
+		this.state.communityController.createCity('Vancouver', 0, 0, 9000)
 	}
 
 	componentDidMount() {

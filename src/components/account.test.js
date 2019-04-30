@@ -8,11 +8,11 @@ test('test the class account class', () => {
 	expect(account.balance).toBe(100);
 	expect(account.accID).toBe(0);
 	expect(account.getBalance()).toBe(100);
-	account.deposit(10);
+		account.deposit(10);
 	expect(account.getBalance()).toBe(110);
-	account.withdrawl(20);
+		account.withdrawl(20);
 	expect(account.getBalance()).toBe(90);
-	account.deposit(1000);
+		account.deposit(1000);
 	expect(account.getBalance(1000)).toBe(1090);
 });
 
@@ -21,7 +21,7 @@ test('test for blank object', () => {
 	expect(account.balance).toBe(0);
 	expect(account.accName).toBe('no name')
 	expect(account.accID).toBe(0);
-	account.deposit(20);
+		account.deposit(20);
 	expect(account.balance).toBe(20);
 
 });
