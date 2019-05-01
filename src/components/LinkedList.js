@@ -17,10 +17,15 @@ class LinkedList {
         // special case: no nodes in the list yet
         if (this.head === null) {
             this.head = newNode;
+            this.tail = newNode;
+            this.current = newNode;
             this._length += 1;
         } 
-        else {
-            // link the current tail and new tail
+        else if(this.current.next === null) {
+           
+        }
+        else{
+        	 // link the current tail and new tail
             this.tail.next = newNode;
             newNode.prev = this.tail;
             this._length += 1;

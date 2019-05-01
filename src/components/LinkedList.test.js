@@ -10,17 +10,17 @@ test('test the Node constructor', () => {
 
 test('test the LinkedList class', () => {
 	const testList = new LinkedList();
-	// console.log('the list', testList)
+	console.log('the list', testList)
 	testList.insert('Shane', 89)
-	// console.log('the list', testList)
+	console.log('the list with Shane', testList)
 	testList.insert('Eva', 99)
-	// console.log('the list again', testList)
+	console.log('the list again with Eva', testList)
 	testList.insert('Dima', 79)
-	// console.log('the list once more', testList)
-	expect(testList.get(2)).toEqual('Shane')
-	console.log('get 0', testList.get(0));
-	console.log('get 1', testList.get(1));
-	console.log('get 2', testList.get(2))
+	console.log('the list once more with Dima', testList)
+	// expect(testList.get(2)).toEqual('Shane')
+	// console.log('get 0', testList.get(0));
+	// console.log('get 1', testList.get(1));
+	// console.log('get 2', testList.get(2))
 
 
 });
