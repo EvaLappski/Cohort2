@@ -21,49 +21,87 @@ class LinkedList {
             this.current = newNode;
             this._length += 1;
         } 
-        else if(this.current.next === null) {
-           
+        else if(this.current.next !== null ) {
+        	newNode.prev = this.current;
+        	newNode.next = this.current.next;
+        	// this.current.prev = this.current.prev
+        	this.current.next = newNode
+        	this.current.next.prev = newNode;
+        	this.current = newNode 
+        	this._length += 1;
         }
-        else{
-        	 // link the current tail and new tail
-            this.tail.next = newNode;
-            newNode.prev = this.tail;
-            this._length += 1;
-        }
-
-        // reassign the tail to be the new node
-        this.tail = newNode;
+        else {//special case, you want to add to the end/last node
+        	this.tail = newNode;
+          	newNode.prev = this.current;
+          	this.current.next = newNode
+          	this.current = newNode
+            this._length += 1;          
+        } 
     }
 
-    
+ 	first(){
+ 	 	if (this.head !== null){;
+ 	 		this.current = this.head
+ 	 		return this.current.subject
+ 	 	}
+	}
 
-// 		let head = new Node(a,b);
-	
-// 		let secondNode = new Node(a,b);
-// 		head.next = secondNode
-// 		secondNode.previous = head;
-	
-// 		let thirdNode = new Node(a,b);
-// 		secondNode.next = thirdNode;
-// 		thirdNode.previous = secondNode;
+	last (){
+		if (this.tail !== null){
+			this.current = this.tail;
+			return this.current.subject
+		}
+	}
+   
+    next (){
+    	if (this.current.next !== null){
+    		this.current = this.current.next;
+    		return this.current.subject;
+    	}
+    	else {
+    		return "you've reached the end of the list"
+    	}
+   }
 
-// 		let tail = thirdNode;
+   previous () {
+   		if (this.current.prev !== null){
+   		this.current = this.current.prev 
 
-// 		let current = head;
+   		return this.current.subject
+   		}
+   		else {
+   		return "you've reached the start of the list"
+   		}
+   }
 
-// 		while (current !== null) {
-//     		console.log(current.data);
-//     		current = current.next;
+   delete(){
+   	if (this._length === 0){
+   		return undefined;
+   	}
 
-//     	let current = tail;
+   	else if(this._length === 1){
+   		this.head = null
+   		this.tail = null
+   		this.current = null
+   		this._length -= 1
+   	}
+   	else {
+   		this.current.prev = this.current.next;
+   		this.current.next = this.current.prev;
+   		this.current = this.current.prev;
+   		this._length -= 1
 
-// 		while (current !== null) {
-//   		  console.log(current.data);
-//    		 current = current.previous;
-// }
 
-// }
-	// }
+   	}
+   }
+   		
+   showCurrent(){
+
+   	return this.current.subject
+   }
+   
+  
+
 }
 
 export default LinkedList
