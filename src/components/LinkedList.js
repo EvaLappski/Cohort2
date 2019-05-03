@@ -26,7 +26,7 @@ class LinkedList {
         	newNode.next = this.current.next;
         	// this.current.prev = this.current.prev
         	this.current.next = newNode
-        	this.current.next.prev = newNode;
+        	newNode.next.prev = newNode;
         	this.current = newNode 
         	this._length += 1;
         }
@@ -79,24 +79,39 @@ class LinkedList {
    		return undefined;
    	}
 
-   	else if(this._length === 1){
+   	else if(this.current.prev === null && this.current.next === null){
    		this.head = null
    		this.tail = null
    		this.current = null
    		this._length -= 1
    	}
-   	else {
-   		this.current.prev = this.current.next;
-   		this.current.next = this.current.prev;
+   	//delete the head node
+   	else if(this.current.prev === null && this.current.next !== null){
+   		this.head = this.current.next;
+   		this.current.next.prev = null;
+   		this._length -=1
+   		this.current = this.current.next
+   	}
+   	//delete the tail node
+   	else if (this.current.next === null && this.current.prev !== null){
+   		this.current.prev.next = null;
+   		this.tail = this.current.prev;
    		this.current = this.current.prev;
    		this._length -= 1
-
-
+   	}
+   	//delete the node inbetween
+   	else {
+   		this.current.prev.next = this.current.next;
+   		this.current.next.prev = this.current.prev;
+   		this.current = this.current.prev;
+   		this._length -= 1
    	}
    }
    		
    showCurrent(){
-
+   	if(this.current === null){
+   		return "error";
+   	}
    	return this.current.subject
    }
    

@@ -11,23 +11,23 @@ it('renders without crashing', () => {
   ReactDOM.unmountComponentAtNode(div);
 });
 
-it('renders MathComp without crashing', () => {
-  const div = document.createElement('div');
-  ReactDOM.render(<MathComp />, div);
-  ReactDOM.unmountComponentAtNode(div);
-});
+// it('renders MathComp without crashing', () => {
+//   const div = document.createElement('div');
+//   ReactDOM.render(<MathComp />, div);
+//   ReactDOM.unmountComponentAtNode(div);
+// });
 
-it('renders AccountComp without crashing', () => {
-  const div = document.createElement('div');
-  ReactDOM.render(<AccountComp />, div);
-  ReactDOM.unmountComponentAtNode(div);
-});
+// it('renders AccountComp without crashing', () => {
+//   const div = document.createElement('div');
+//   ReactDOM.render(<AccountComp />, div);
+//   ReactDOM.unmountComponentAtNode(div);
+// });
 
-it('renders AccountsComp without crashing', () => {
-  const div = document.createElement('div');
-  ReactDOM.render(<AccountsComp />, div);
-  ReactDOM.unmountComponentAtNode(div);
-});
+// it('renders AccountsComp without crashing', () => {
+//   const div = document.createElement('div');
+//   ReactDOM.render(<AccountsComp />, div);
+//   ReactDOM.unmountComponentAtNode(div);
+// });
 
 
 
