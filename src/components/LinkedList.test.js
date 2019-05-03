@@ -17,7 +17,7 @@ test('test the LinkedList class for insert', () => {
 	testList.insert('B', 99)
 	expect(testList.first()).toEqual('A')
 	expect(testList.next()).toEqual('B')
-	expect(testList.next()).toEqual("you've reached the end of the list")
+	// expect(testList.next()).toEqual("you've reached the end of the list")
 	expect(testList.last()).toEqual('B')
 	testList.insert('C', 79)
 	expect(testList.first()).toEqual('A')
@@ -25,11 +25,11 @@ test('test the LinkedList class for insert', () => {
 	expect(testList.next()).toEqual('C')
 	expect(testList.previous()).toEqual('B')
 	expect(testList.next()).toEqual('C')
-	expect(testList.next()).toEqual("you've reached the end of the list")
+	// expect(testList.next()).toEqual("you've reached the end of the list")
 	expect(testList.last()).toEqual('C')
 	testList.insert('D', 35);
 	expect(testList.last()).toEqual('D')
-	expect(testList.next()).toEqual("you've reached the end of the list")
+	// expect(testList.next()).toEqual("you've reached the end of the list")
 	expect(testList.previous()).toEqual('C')
 	expect(testList.previous()).toEqual('B')
 	expect(testList.previous()).toEqual("A")
@@ -44,12 +44,12 @@ test('test the LinkedList class for insert', () => {
 test('test the LinkedList class for delete', () => {
 	const testList = new LinkedList();
 	testList.insert('X', 89);
-	expect(testList.previous()).toEqual("you've reached the start of the list")
+	// expect(testList.previous()).toEqual("you've reached the start of the list")
 	// console.log('the list', testList)
 	// console.log('first',testList.first())
 	testList.delete()
 	// console.log('delete first', testList)
-	expect(testList.showCurrent()).toEqual("error");
+	expect(testList.showCurrent()).toEqual("Empty");
 	expect(testList.delete()).toEqual(undefined)
 	testList.insert('A', 90)
 	testList.insert('B', 79)

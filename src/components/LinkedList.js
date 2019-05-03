@@ -51,6 +51,7 @@ class LinkedList {
 			this.current = this.tail;
 			return this.current.subject
 		}
+
 	}
    
     next (){
@@ -59,7 +60,7 @@ class LinkedList {
     		return this.current.subject;
     	}
     	else {
-    		return "you've reached the end of the list"
+    		this.first()
     	}
    }
 
@@ -70,8 +71,8 @@ class LinkedList {
    		return this.current.subject
    		}
    		else {
-   		return "you've reached the start of the list"
-   		}
+    		this.last()
+    	}
    }
 
    delete(){
@@ -110,7 +111,7 @@ class LinkedList {
    		
    showCurrent(){
    	if(this.current === null){
-   		return "error";
+   		return "Empty";
    	}
    	return this.current.subject
    }
