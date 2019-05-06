@@ -60,7 +60,8 @@ class LinkedList {
     		return this.current.subject;
     	}
     	else {
-    		this.first()
+    		return "you've reached the end of the list"
+    		
     	}
    }
 
@@ -71,7 +72,8 @@ class LinkedList {
    		return this.current.subject
    		}
    		else {
-    		this.last()
+    		return  "you've reached the start of the list"
+    		
     	}
    }
 
