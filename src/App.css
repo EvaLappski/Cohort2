@@ -128,6 +128,11 @@ button {
   flex-direction: row-reverse;
 }
 
+.splitdiv{
+  display: flex;
+  flex-direction: row-reverse;
+}
+
 .leftDiv{
   margin: 0;
   width: 50%;

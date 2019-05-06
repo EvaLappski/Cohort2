@@ -48,7 +48,7 @@ class ListComp extends React.Component {
 
 		return (
 			<div>
-			<h2> LIST COMP </h2>
+			<h2> LIST </h2>
 			<input placeholder='Subject' id='input1'/>
 			<input placeholder='Amount' id='input2' />
 			<button className= 'button2' id='ok' onClick= {this.createNewNode}>Add</button>

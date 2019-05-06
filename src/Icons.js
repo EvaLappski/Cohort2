@@ -15,6 +15,7 @@ import CityComp from './components/CityComp'
 import ListComp from './components/ListComp'
 import account from './components/account';
 import accounts from './components/accounts';
+import WorkflowComp from './components/WorkflowComp'
 
 class Icons extends React.Component {
 	constructor(props){
@@ -28,6 +29,7 @@ class Icons extends React.Component {
 		bank: false,
 		city: false, 
 		list: false,
+		state: false,
 		balance:0
 
 	}
@@ -42,31 +44,36 @@ clickHandler = (event) => {
     let x = event.target.id
     if (x === 'Calculator') { 
     	this.setState(prevState => ({ calculator: !prevState.calculator }))
-    	this.setState({home: false, accounts:false, bank:false, city: false, list: false })
+    	this.setState({stack: false,home: false, accounts:false, bank:false, city: false, list: false })
     }
     else if (x === 'Home'){
     	this.setState(prevState => ({ home: !prevState.home }))
-    	this.setState({calculator: false, accounts:false, bank:false, city: false, list: false})
+    	this.setState({stack: false,calculator: false, accounts:false, bank:false, city: false, list: false})
     }
 
     else if (x === "Accounts"){
     	this.setState(prevState => ({ accounts: !prevState.accounts }))
-    	this.setState({calculator: false, home:false, bank:false,city: false, list: false})	
+    	this.setState({stack: false,calculator: false, home:false, bank:false,city: false, list: false})	
     }
 
     else if (x === "Bank"){
     	this.setState(prevState => ({ bank: !prevState.bank}))
-    	this.setState({calculator: false, home:false, accounts:false, city: false, list: false})
+    	this.setState({stack: false,calculator: false, home:false, accounts:false, city: false, list: false})
     }
 
     else if ( x === "City"){
     	this.setState(prevState => ({ city: !prevState.city}))
-    	this.setState({calculator: false, home:false, accounts:false,bank: false, list: false})
+    	this.setState({stack: false,calculator: false, home:false, accounts:false,bank: false, list: false})
     }
 
     else if (x === "List"){
     	this.setState(prevState => ({ list: !prevState.list}))
-    	this.setState({calculator: false, home:false, accounts:false,bank: false, city:false})
+    	this.setState({stack: false, calculator: false, home:false, accounts:false,bank: false, city:false})
+    }
+
+    else if (x === "Stack"){
+    	this.setState(prevState => ({ stack: !prevState.stack}))
+    	this.setState({list: false, calculator: false, home:false, accounts:false,bank: false, city:false})
     }
     // console.log("event.target.id is", x);
 }
@@ -90,6 +97,8 @@ render(){
 		{/*<h1>You have selected {this.state.name}</h1>*/}
 		<button className= 'button' id='List' onClick={this.clickHandler} >
 			<img src={check} className='icon' alt='icon'/></button>
+		<button className= 'button' id='Stack' onClick={this.clickHandler} >
+			<img src={office} className='icon' alt='icon'/></button>
 		<div>
 			{this.state.calculator ? <MathComp/> : null}
 			{this.state.home ? <img src={tenor}/> : null}
@@ -97,6 +106,7 @@ render(){
 			{this.state.bank ? <AccountsComp  /> : null} 
 			{this.state.city ? <CityComp /> : null}
 			{this.state.list ? <ListComp /> : null}
+			{this.state.stack ? <WorkflowComp /> : null}
 		</div>
 	</div>
 	)
