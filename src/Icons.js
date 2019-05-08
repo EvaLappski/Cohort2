@@ -8,6 +8,7 @@ import tenor from './tenor.gif';
 import bank from './bank.svg';
 import check from './check.svg';
 import office from './office.svg';
+import logo from './logo.svg'
 import MathComp from './components/MathComp';
 import AccountComp from './components/AccountComp';
 import AccountsComp from './components/AccountsComp';
@@ -101,8 +102,8 @@ render(){
 			<img src={office} className='icon' alt='icon'/></button>
 		<div>
 			{this.state.calculator ? <MathComp/> : null}
-			{this.state.home ? <img src={tenor}/> : null}
-			{this.state.accounts ? <AccountComp  accName= 'Lapp' balance= {this.state.balance} obtainDeposit={this.obtainDeposit} /> : null}
+			{this.state.home ? <img className='icon' src={logo}/> : null}
+			{this.state.accounts ? <AccountComp  accName= 'Eva Lapp Savings' balance= {this.state.balance} obtainDeposit={this.obtainDeposit} /> : null}
 			{this.state.bank ? <AccountsComp  /> : null} 
 			{this.state.city ? <CityComp /> : null}
 			{this.state.list ? <ListComp /> : null}

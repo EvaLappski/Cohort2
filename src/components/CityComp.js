@@ -18,6 +18,7 @@ class CityComp extends React.Component {
 		this.state.communityController.createCity('Edmonton', 100, 99, 9000)
 		this.state.communityController.createCity('Calgary', 100, 99, 9000)
 		this.state.communityController.createCity('Vancouver', 0, 0, 9000)
+
 	}
 
 	componentDidMount() {
@@ -49,7 +50,9 @@ class CityComp extends React.Component {
 		let x = this.communityController.findCityIndex(cityID);//return index
 		this.setState({communityController: this.communityController});
 		this.setState({whichCity: this.communityController.community[x]});
+		console.log(this.state)
 		this.setState({displayDetails: true});
+
 	}
 
 	moveOut = (cityID) => {
@@ -87,6 +90,14 @@ class CityComp extends React.Component {
 		return (
 			<div>
 				<h2> CITIES AND COMMUNITY </h2>
+
+					<div className="statsDiv">
+				
+						<h3>Total Population: {this.state.communityController.getPopulationTotal()} </h3>
+						<h3>Most Northern City: {this.state.communityController.getMostNorthern()} </h3>	
+						<h3>Most Southern City: {this.state.communityController.getMostSouthern()} </h3>		
+					</div>
+
 					<table id= 'table'>
 						<tbody>
 							<tr>
@@ -106,11 +117,7 @@ class CityComp extends React.Component {
 						</tbody>
 					</table>
 						<br></br>
-					<div>
-						<h2>Total Population: {this.state.communityController.getPopulationTotal()} </h2>
-						<h2>Most Northern City: {this.state.communityController.getMostNorthern()} </h2>	
-						<h2>Most Southern City: {this.state.communityController.getMostSouthern()} </h2>		
-					</div>
+					
 
 					<div>
 						{this.state.displayDetails ? <CityDetails passCity={this.state.whichCity} passCommunity={this.state.communityController} passMoveOut={this.moveOut} passMoveIn={this.moveIn} /> : null}

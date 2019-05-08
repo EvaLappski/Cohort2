@@ -21,6 +21,7 @@ class AccountsComp extends React.Component {
 
 	componentDidMount() {
 		this.accountController = this.state.accountController;
+		this.getStats()
 		this.setState({accountController: this.accountController});
 	}
 
@@ -28,6 +29,7 @@ class AccountsComp extends React.Component {
 		let b = this.accountController.findAccount(accID);
 		this.accountController.accountList[b].balance = balance;  
 		this.setState({accountController: this.accountController});
+		this.getStats();
 	}
 
 	createNewAcct = () => {
@@ -94,7 +96,7 @@ class AccountsComp extends React.Component {
 			<h2> BANK ACCOUNTS </h2>
 			<div className= 'bankDiv'>
 				<div className= 'rightDiv'>
-					<button className= 'button2' id='newAccount'> New</button>
+					<h2> Create New Account</h2>
 						<div>
 							<input id="initialName" type="text" name="inputName" placeholder= 'Account Name' onChange= {this.handleChange} />
 							<input id="initialBalance" type="number" name="inputBalance" placeholder= 'Starting Balance' onChange= {this.handleChange} />

@@ -32,7 +32,7 @@ class AccountComp extends React.Component {
 		let a = Number(this.state.input);
 		this.account.deposit(a);
 		this.props.obtainDeposit(this.account.balance, this.account.accID);
-		this.setState({ account: this.account });
+		this.setState({account: this.account });
 	}
 
 	remove = () => {
@@ -43,8 +43,8 @@ class AccountComp extends React.Component {
 	render(){
 		
 		return (
+			
 			<div >
-			<h2> BASIC ACCOUNT </h2>
 				<div className= "accountDiv">
 					<h2> { this.props.accName } </h2>
 					<input id="transaction" type="number" name="input" onChange={this.handleChange}/>

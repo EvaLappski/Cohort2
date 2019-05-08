@@ -58,11 +58,11 @@ class WorkflowComp extends React.Component {
 				</div>
 				<div className='splitdiv'>
 					<div className='leftDiv'>
-					<h2>FIFO</h2>
+					<h2>QUEUE</h2>
 						{listFifo}
 					</div>
 					<div className='rightDiv'>
-					<h2>LIFO</h2>
+					<h2>STACK</h2>
 						{listLifo}
 					</div>
 				</div>
