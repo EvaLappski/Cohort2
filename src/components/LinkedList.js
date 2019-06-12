@@ -118,8 +118,26 @@ class LinkedList {
    	return this.current.subject
    }
    
-  
 
+  reverseLL(){
+  let current = this.head;
+  let prev = null;
+    while( current ){
+      let next = current.next
+      current.next = prev
+      current.prev = next
+      prev = current
+      current = next
+  }
+
+  this.tail = this.head
+  this.head = prev
+  return this.current.subject
+  } 
+
+   
 }
+
+
 
 export default LinkedList

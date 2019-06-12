@@ -1,5 +1,6 @@
 import React from 'react';
 import './App.css';
+// SVG FILES
 import calculating from './calculating.svg';
 import mapsflags from './mapsflags.svg';
 import dollarsymbol from './dollarsymbol.svg';
@@ -9,6 +10,8 @@ import bank from './bank.svg';
 import check from './check.svg';
 import office from './office.svg';
 import logo from './logo.svg'
+import phone from './phone.svg'
+// COMPONENTS 
 import MathComp from './components/MathComp';
 import AccountComp from './components/AccountComp';
 import AccountsComp from './components/AccountsComp';
@@ -17,6 +20,8 @@ import ListComp from './components/ListComp'
 import account from './components/account';
 import accounts from './components/accounts';
 import WorkflowComp from './components/WorkflowComp'
+import PythonComp from './components/PythonComp'
+
 
 class Icons extends React.Component {
 	constructor(props){
@@ -29,8 +34,10 @@ class Icons extends React.Component {
 		accounts: false,
 		bank: false,
 		city: false, 
-		list: false,
+		phone: false,
 		state: false,
+		stack: false,
+		list: false,
 		balance:0
 
 	}
@@ -45,36 +52,40 @@ clickHandler = (event) => {
     let x = event.target.id
     if (x === 'Calculator') { 
     	this.setState(prevState => ({ calculator: !prevState.calculator }))
-    	this.setState({stack: false,home: false, accounts:false, bank:false, city: false, list: false })
+    	this.setState({stack: false,home: false, accounts:false, bank:false, city: false, list: false, phone:false })
     }
     else if (x === 'Home'){
     	this.setState(prevState => ({ home: !prevState.home }))
-    	this.setState({stack: false,calculator: false, accounts:false, bank:false, city: false, list: false})
+    	this.setState({stack: false,calculator: false, accounts:false, bank:false, city: false, list: false, phone:false})
     }
 
     else if (x === "Accounts"){
     	this.setState(prevState => ({ accounts: !prevState.accounts }))
-    	this.setState({stack: false,calculator: false, home:false, bank:false,city: false, list: false})	
+    	this.setState({stack: false,calculator: false, home:false, bank:false,city: false, list: false,phone:false, phone:false})	
     }
 
     else if (x === "Bank"){
     	this.setState(prevState => ({ bank: !prevState.bank}))
-    	this.setState({stack: false,calculator: false, home:false, accounts:false, city: false, list: false})
+    	this.setState({stack: false,calculator: false, home:false, accounts:false, city: false, list: false, phone:false})
     }
 
     else if ( x === "City"){
     	this.setState(prevState => ({ city: !prevState.city}))
-    	this.setState({stack: false,calculator: false, home:false, accounts:false,bank: false, list: false})
+    	this.setState({stack: false,calculator: false, home:false, accounts:false,bank: false, list: false, phone:false})
     }
 
     else if (x === "List"){
     	this.setState(prevState => ({ list: !prevState.list}))
-    	this.setState({stack: false, calculator: false, home:false, accounts:false,bank: false, city:false})
+    	this.setState({stack: false, calculator: false, home:false, accounts:false,bank: false, city:false, phone:false})
     }
 
     else if (x === "Stack"){
     	this.setState(prevState => ({ stack: !prevState.stack}))
-    	this.setState({list: false, calculator: false, home:false, accounts:false,bank: false, city:false})
+    	this.setState({list: false, calculator: false, home:false, accounts:false,bank: false, city:false, phone:false})
+    }
+    else if (x === "Phone"){
+    	this.setState(prevState => ({ phone: !prevState.phone}))
+    	this.setState({list: false, calculator: false, home:false, accounts:false,bank: false, city:false, stack: false})
     }
     // console.log("event.target.id is", x);
 }
@@ -100,6 +111,8 @@ render(){
 			<img src={check} className='icon' alt='icon'/></button>
 		<button className= 'button' id='Stack' onClick={this.clickHandler} >
 			<img src={office} className='icon' alt='icon'/></button>
+		<button className= 'button' id='Phone' onClick={this.clickHandler} >
+			<img src={phone} className='icon' alt='icon'/></button>
 		<div>
 			{this.state.calculator ? <MathComp/> : null}
 			{this.state.home ? <img className='icon' src={logo}/> : null}
@@ -108,6 +121,7 @@ render(){
 			{this.state.city ? <CityComp /> : null}
 			{this.state.list ? <ListComp /> : null}
 			{this.state.stack ? <WorkflowComp /> : null}
+			{this.state.phone ? <PythonComp /> : null}
 		</div>
 	</div>
 	)
