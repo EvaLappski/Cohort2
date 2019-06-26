@@ -94,12 +94,8 @@ test('test the LinkedList class for reverse', () => {
 	expect(testList.next()).toEqual('B')
 	expect(testList.next()).toEqual('C')
 	testList.reverseLL(testList)
-	console.log('reverse test',testList)
 	expect(testList.first()).toEqual('C');
-	console.log(testList.showCurrent())
 	expect(testList.next()).toEqual('B')
-	console.log(testList.showCurrent())
 	expect(testList.next()).toEqual('A')
-	console.log(testList.showCurrent())
 	expect(testList.last()).toEqual('A')
 });
